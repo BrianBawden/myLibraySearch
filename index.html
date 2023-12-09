@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main>
+    <div class="ourter-wrap">
+      <div class="inner-wrap">
+        <section class="heading">
+          <p class="title">Library Search</p>
+          <p class="subtitle infoTxt">Search by Author, Subject, or Title </p><hr>
+          <div class="category infoTxt">
+            <span class="active" data-url="https://openlibrary.org/search/authors.json?q=">Author</span>
+            <span data-url="http://openlibrary.org/subjects/">Subject</span>
+            <span data-url="https://openlibrary.org/search.json?title=">Title</span><br>
+          </div>
+          <div class="categorySearch">
+            <label for="userSearch">Search:</label>
+            <input type="text" name="userSearch" id="userSearch">
+            <button>Search</button>
+          </div>
+        </section>
+        <section class="library">
+          <div class="results"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <script src="./index.js"></script>
+</body>
+</html>
+
