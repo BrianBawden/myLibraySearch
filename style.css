@@ -71,11 +71,18 @@ border: #f5f7fa solid 5px;
   flex-direction: row;
   margin: 1rem 1rem;
   background-color: #bbb4b4;
+  border: solid whitesmoke 8px;
+  
 }
 
 .cover {
-  max-width: 70%;
+  max-width: 40%;
   margin: 1rem 2rem;
+}
+
+.coverImg{
+  min-width: 50%;
+  max-width: 50%;
 }
 
 /***
@@ -93,4 +100,39 @@ text
 
 .title{
   font-size: 2rem;
+}
+
+
+/*************  
+    Footer
+**************/
+
+footer{
+  text-align: center;
+}
+
+footer p{
+  padding: 1rem;
+
+}
+
+
+
+/***********************
+   Responsive Display
+************************/
+
+@media (max-width: 500px) {
+  body{
+    max-width: 100%;
+  }
+  
+  .result{
+    flex-direction: column;
+  }
+
+  .coverImg{
+    max-width: 100%;
+    min-height: 10rem;
+  }
 }
