@@ -1,4 +1,5 @@
 const results = document.querySelector(".results")
+const rmvBtn = document.querySelector
 const favBookString = localStorage.getItem("favBooks")
 let favBooks = {}
 
@@ -13,7 +14,7 @@ if (favBookString){
 
 function buildFavBooks(){
     favBooks.forEach(book => {
-      console.log(book)
+      console.log("first: ", book)
       results.innerHTML += `
         <div class="result">
         <div class="coverImg">
@@ -25,7 +26,7 @@ function buildFavBooks(){
             <p class="author infoTxt">Author: ${book.bookAuthor_name}</p>
             <p class="published infoTxt">Published Year: ${book.bookFirst_publish_year}</p>
             <p class="pages infoTxt">Number of Pages: ${book.bookNumber_of_pages_median}</p>
-            <button id="addFav" onclick='addToFavs("${book.bookTitle}", "${book.bookAuthor_name}", "${book.bookFirst_publish_year}", "${book.bookNumber_of_pages_median}", "${book.bookCover}")'>Add to Favorites</button>
+            <button id="addFav" onclick='removeFromFavs("${book.bookTitle}")'>remove from Favorites</button>
           </div>
         </div>
       </div>
@@ -33,5 +34,17 @@ function buildFavBooks(){
     });
     // console.log(data.docs)
 }
+
+function removeFromFavs(delTitle){
+  console.log("btn key: ", delTitle)
+  let books = JSON.parse(localStorage.getItem('favBooks'))
+
+  books = books.filter(book => book.bookTitle != delTitle)
+
+  localStorage.setItem('favBooks', JSON.stringify(books))
+
+}
+
+
 
 buildFavBooks()

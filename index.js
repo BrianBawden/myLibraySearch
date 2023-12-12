@@ -58,7 +58,7 @@ function urlRequest(url){
       </div>
       `
     });
-    // console.log(data.docs)
+    console.log(data.docs)
   })
 }
 
@@ -66,12 +66,8 @@ function urlRequest(url){
 // dataRequest('https://openlibrary.org/subjects/outdoors.json?details=false')
 
 function addToFavs(title, author, published, pages, cover){
-  console.log("title: ", title)
-  console.log("author: ", author)
-  console.log("published: ", published)
-  console.log("pages: ", pages)
-  console.log("cover: ", cover)
 
+console.log("test")
   book = {bookTitle: title, bookAuthor: author, bookPublished: published, bookPages: pages, bookCover: cover}
   
   const favBookLS = localStorage.getItem('favBooks')
@@ -102,7 +98,7 @@ category.addEventListener("click", event => {
 search.addEventListener('click', event => {
   const search = userSearch.value
   // location.reload()
-  console.log(userSearch.value)
+  // console.log(userSearch.value)
   const replaceSearch = search.trim().replace(/\s/g, "+")
   const activeSearch = document.querySelector(".active").dataset.url
   const url = activeSearch + replaceSearch

@@ -58,8 +58,29 @@ hr {
   align-items: center;
 }
 
+h1{
+  margin: 2rem;
+}
+
 .active {
 border: #f5f7fa solid 5px;
+}
+
+.links{
+  margin: 1rem;
+}
+
+.links a{
+  margin: .5rem;
+  padding: .2rem;
+  border: solid rgb(36, 54, 67) 2px;
+  background-color: #6896b7;
+  color: #c4e0e4;
+  border-radius: 4px;
+}
+
+.links a:visited{
+  text-decoration: none;
 }
 
 /***********************
