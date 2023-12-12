@@ -44,7 +44,6 @@ function urlRequest(url){
       results.innerHTML += `
         <div class="result">
         <div class="coverImg">
-          <p>Cover:</p>
           <a href="http://openlibrary.or/api/volumes//brief/isbn/${book.isbn[0]}.json"><img class="cover" src="${coverImg}" alt="Cover of ${book.title}"></a>
         </div>
         <div class="info">
@@ -73,7 +72,7 @@ function addToFavs(title, author, published, pages, cover){
   console.log("pages: ", pages)
   console.log("cover: ", cover)
 
-  book = [title, author, published, pages, cover]
+  book = {bookTitle: title, bookAuthor: author, bookPublished: published, bookPages: pages, bookCover: cover}
   
   const favBookLS = localStorage.getItem('favBooks')
 
