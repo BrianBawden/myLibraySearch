@@ -13,7 +13,7 @@ async function dataRequest(url){
   try{
     const response = await fetch(url)
     const data = response.json();
-    console.log(await data)
+    // console.log(await data)
     return await data;
   }catch(e){
     console.log("dataRequest failed: ", e)
@@ -23,7 +23,7 @@ async function dataRequest(url){
 // this function gets the number used by the API to find images of the cover. 
 function getIsbn(isbns){
   if(isbns){
-    return 'https://covers.openlibrary.org/b/isbn/' + isbns[0] +'-L.jpg'
+    return 'https:\//covers.openlibrary.org/b/isbn/' + isbns[0] +'-L.jpg'
   }
   else{
     return 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGlicmFyeXxlbnwwfHwwfHx8MA%3D%3D';
@@ -53,6 +53,7 @@ function urlRequest(url){
             <p class="author infoTxt">Author: ${book.author_name}</p>
             <p class="published infoTxt">Published Year: ${book.first_publish_year}</p>
             <p class="pages infoTxt">Number of Pages: ${book.number_of_pages_median}</p>
+            <button id="addFav" onclick='addToFavs("${book.title}", "${book.author_name}", "${book.first_publish_year}", "${book.number_of_pages_median}", "${coverImg}")'>Add to Favorites</button>
           </div>
         </div>
       </div>
@@ -64,6 +65,28 @@ function urlRequest(url){
 
 // urlRequest(hatchetUrl)
 // dataRequest('https://openlibrary.org/subjects/outdoors.json?details=false')
+
+function addToFavs(title, author, published, pages, cover){
+  console.log("title: ", title)
+  console.log("author: ", author)
+  console.log("published: ", published)
+  console.log("pages: ", pages)
+  console.log("cover: ", cover)
+
+  book = [title, author, published, pages, cover]
+  
+  const favBookLS = localStorage.getItem('favBooks')
+
+  if (favBookLS){
+    const oldFavBooks = JSON.parse(favBookLS)
+    const newFavBooks = [...oldFavBooks, book]
+
+  localStorage.setItem('favBooks', JSON.stringify(newFavBooks))
+  }else{
+    localStorage.setItem('favBooks', JSON.stringify([book]))
+
+  }
+}
 
 
 // listen to see which search parameter is being clicked. Category is the div area the search type buttons are located. 
