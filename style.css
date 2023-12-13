@@ -40,17 +40,27 @@ hr {
   width: 100%;
 }
 
+
+/***********************
+Header
+************************/
+
+.category {
+  display: flex;
+  margin: 0 25% 10px 25%;
+  flex-direction: column;
+  text-align: center;
+}
+
 /* buttons for category search */
 .category span {
   background-color: #92b1e8;
   padding: 3px;
-  margin: 10px;
+  margin: 3px 4rem;
   border-radius: 3px;
+  font-size: large;
+  max-width: 50%;
 }
-
-/***********************
-        Header
-************************/
 
 .heading{
   display: flex;
@@ -63,7 +73,7 @@ h1{
 }
 
 .active {
-border: #f5f7fa solid 5px;
+outline: #f5f7fa solid 5px;
 }
 
 .links{
@@ -74,9 +84,10 @@ border: #f5f7fa solid 5px;
   margin: .5rem;
   padding: .2rem;
   border: solid rgb(36, 54, 67) 2px;
-  background-color: #6896b7;
-  color: #c4e0e4;
+  background-color: #3e6b8b;
+  color: #d6eef2;
   border-radius: 4px;
+  font-size: large;
 }
 
 .links a:visited{
