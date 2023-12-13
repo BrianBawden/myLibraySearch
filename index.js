@@ -67,7 +67,6 @@ function urlRequest(url){
 
 function addToFavs(title, author, published, pages, cover){
 
-console.log("test")
   book = {bookTitle: title, bookAuthor: author, bookPublished: published, bookPages: pages, bookCover: cover}
   
   const favBookLS = localStorage.getItem('favBooks')
