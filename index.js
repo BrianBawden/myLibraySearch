@@ -38,21 +38,21 @@ function clearSearch() {
 function urlRequest(url){
   dataRequest(url).then(data => {
     data.docs.forEach(book => {
-      // console.log(book)
+      // console.log(book.key)
+      const bookLink = "https://openlibrary.org" + book.key
       let coverImg = getIsbn(book.isbn)
-      const coverUrl = 'https://covers.openlibrary.org/b/isbn/' + coverImg +'-L.jpg'
       results.innerHTML += `
         <div class="result">
         <div class="coverImg">
-          <img class="cover" src="${coverImg}" alt="Cover of ${book.title}">
+          <a class="coverLink" href="${bookLink}" target="blank"><img class="cover" src="${coverImg}" alt="Cover of ${book.title}"></a>
         </div>
         <div class="info">
           <div>
-            <p class="resultTitle infoTxt">"${book.title}"</p>
+            <a class="coverLink" href="${bookLink}" target="blank"><p class="resultTitle infoTxt">"${book.title}"</p></a>
             <p class="author infoTxt">Author: ${book.author_name}</p>
             <p class="published infoTxt">Published Year: ${book.first_publish_year}</p>
             <p class="pages infoTxt">Number of Pages: ${book.number_of_pages_median}</p>
-            <button id="addFav" onclick='addToFavs("${book.title}", "${book.author_name}", "${book.first_publish_year}", "${book.number_of_pages_median}", "${coverImg}")'>Add to Favorites</button>
+            <button id="addFav" onclick='addToFavs("${book.title}", "${book.author_name}", "${book.first_publish_year}", "${book.number_of_pages_median}", "${coverImg}", "${book.key})'>Add to Favorites</button>
           </div>
         </div>
       </div>
@@ -65,9 +65,9 @@ function urlRequest(url){
 // urlRequest(hatchetUrl)
 // dataRequest('https://openlibrary.org/subjects/outdoors.json?details=false')
 
-function addToFavs(title, author, published, pages, cover){
-
-  book = {bookTitle: title, bookAuthor: author, bookPublished: published, bookPages: pages, bookCover: cover}
+function addToFavs(title, author, published, pages, cover, key){
+console.log(key)
+  book = {bookTitle: title, bookAuthor: author, bookPublished: published, bookPages: pages, bookCover: cover, bookKey: key}
   
   const favBookLS = localStorage.getItem('favBooks')
 
