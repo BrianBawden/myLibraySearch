@@ -44,7 +44,7 @@ function urlRequest(url){
       results.innerHTML += `
         <div class="result">
         <div class="coverImg">
-          <a href="http://openlibrary.or/api/volumes//brief/isbn/${book.isbn[0]}.json"><img class="cover" src="${coverImg}" alt="Cover of ${book.title}"></a>
+          <img class="cover" src="${coverImg}" alt="Cover of ${book.title}">
         </div>
         <div class="info">
           <div>
