@@ -18,9 +18,9 @@ function buildFavBooks() {
         <div class="info">
           <div>
           <a class="coverLink" href="${bookLink}" target="blank"><p class="resultTitle infoTxt">"${book.bookTitle}"</p></a>
-            <p class="author infoTxt">Author: ${book.bookAuthor_name}</p>
-            <p class="published infoTxt">Published Year: ${book.bookFirst_publish_year}</p>
-            <p class="pages infoTxt">Number of Pages: ${book.bookNumber_of_pages_median}</p>
+            <p class="author infoTxt">Author: ${book.bookAuthor}</p>
+            <p class="published infoTxt">Published Year: ${book.bookPublished}</p>
+            <p class="pages infoTxt">Number of Pages: ${book.bookPages}</p>
             <button id="addFav" onclick='removeFromFavs("${book.bookTitle}")'>remove from Favorites</button>
           </div>
         </div>
